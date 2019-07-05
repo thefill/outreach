@@ -1,1 +1,1 @@
-export * from './poc.class';
+export * from './message-warehouse.class';

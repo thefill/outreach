@@ -22,7 +22,7 @@ export interface IMessageWarehouseConfig {
     /**
      * repositories that provides incoming messages
      */
-    providerRepositories?: IMessageCollectorRepository[];
+    collectorRepositories?: IMessageCollectorRepository[];
 
     /**
      * repositories that handles distribution of the message events outside the store

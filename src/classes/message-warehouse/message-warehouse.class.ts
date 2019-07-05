@@ -6,7 +6,7 @@ export class MessageWarehouse implements IMessageWarehouse {
     // by default no repos // TODO: add default in-memory repo
     public readerRepositories = [];
     public writerRepositories = [];
-    public providerRepositories = [];
+    public collectorRepositories = [];
     public distributorRepositories = [];
     // by default after 1 day we set message as stale
     public staleTreshold = 1000 * 60 * 60 * 24;
@@ -34,7 +34,7 @@ export class MessageWarehouse implements IMessageWarehouse {
     /**
      * Queue messages for topic
      */
-    public queue(payload: any, topics?: string[]): void{
+    public write(payload: any, topics?: string[]): void{
         // TODO: implement
     }
 
@@ -86,7 +86,7 @@ export class MessageWarehouse implements IMessageWarehouse {
      * @param {number} index
      * @param {string[]} topics
      */
-    protected requeue(index: number, topics?: string[]): void{
+    protected rewrite(index: number, topics?: string[]): void{
     }
 
     /**

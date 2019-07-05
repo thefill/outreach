@@ -13,7 +13,7 @@ import {IMessageWarehouseConfig} from './message-warehouse-config.interface';
 export interface IMessageWarehouse extends IMessageWarehouseConfig {
     readerRepositories: IMessageReaderRepository[];
     writerRepositories: IMessageWriterRepository[];
-    providerRepositories: IMessageCollectorRepository[];
+    collectorRepositories: IMessageCollectorRepository[];
     distributorRepositories: IMessageDistributorRepository[];
     staleTreshold: number;
     suppressErrors: boolean;
@@ -30,7 +30,7 @@ export interface IMessageWarehouse extends IMessageWarehouseConfig {
     /**
      * Queue messages for topic
      */
-    queue: (payload: any, topics?: string[]) => void;
+    write: (payload: any, topics?: string[]) => void;
 
     /**
      * Read message from topic(s) and discard it from queue.
@@ -46,7 +46,7 @@ export interface IMessageWarehouse extends IMessageWarehouseConfig {
      * @param {string[]} topics
      * @param {number} time
      */
-    reserve: (count: number, topics?: string[], lockId?: string, time?: number) => void;
+    reserve: (count: number, lockId?: string, time?: number, topics?: string[]) => void;
 
     /**
      * remove message under index for specific topic
